@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypnoLab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Общий контейнер, растягивается на всю высоту экрана */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto; /* Включаем прокрутку */
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-color: #0F0404; /* Устанавливаем фон для всего экрана */
+        }
+
+    .container {
+        position: relative;
+  width: 100vw;
+  min-height: 100vh; /* Растягиваем контейнер на весь экран */
+  background-color: #0F0404;
+  color: white;
+  overflow-y: auto; /* Включаем прокрутку внутри контейнера */
+    }
+
+    /* Лого текст */
+    .logo {
+            position: absolute;
+            top: 40px;
+            left: 160px;
+            font-size: 48px;
+            font-family: "poppins", sans-serif;
+            font-weight: 600;
+            animation: changeHypnosisWord 5s infinite;
+        }
+
+        .logo-img {
+            position: absolute;
+            top: 20px;
+            left: 7%;
+            width: 98px;
+            height: 98px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes changeHypnosisWord {
+            0% {
+                content: "гипноз";
+                color: #ffffff; /* Красный */
+            }
+            20% {
+                content: "hypnosis";
+                color: #007BFF; /* Синий */
+            }
+            40% {
+                content: "hipnosis";
+                color: #28A745; /* Зеленый */
+            }
+            60% {
+                content: "hypnose";
+                color: #FFC107; /* Желтый */
+            }
+            80% {
+                content: "hypnose";
+                color: #17A2B8; /* Бирюзовый */
+            }
+            100% {
+                content: "гипноз";
+                color: #ffffff; /* Возврат к красному */
+            }
+        }
+
+    /* Изображение */
+    .image {
+      position: absolute;
+      left: 3.5%; 
+      top: 1.5vh;
+      width: 6.8vh;
+      height: 6.8vh;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Текст "Методы" */
+    .methods {
+      position: absolute;
+      left: 40.5%;
+      top: 35px;
+      font-size: 50px;
+      font-weight: 800;
+    }
+
+    /* Кнопка "Назад" */
+    .back {
+      position: absolute;
+      right: 3.4%;
+      top: 40px;
+      padding: 0.5vh 2vh;
+      font-size: 3.3vh;
+      font-weight: 500;
+      color: white;
+      background-color: transparent;
+      border: 0.3vh solid white;
+      border-radius: 5vh;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .button-text {
+        color: white;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+    /* Анимация мягкого переливания обводки */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    
+
+    /* Карточка метода */
+   
+    /* Заголовок метода */
+    .method-title {
+      position: absolute;
+      font-size: 3.3vh;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Описание метода */
+    .method-description {
+      position: absolute;
+      font-size: 2.4vh;
+      font-weight: bold;
+      line-height: 1.2;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Позиционирование карточек */
+  
+    .method-title1 { left: 47.8%; top: 210px; }
+    .method-description1 { left: 47.8%; top: 260px; width: 20%; }
+
+    
+    .method-title2 { left: 47.8%; top: 50%; }
+    .method-description2 { left: 47.8%; top: 55%; width: 20%; }
+
+    
+    .method-title3 { left: 47.8%; top: 80%; }
+    .method-description3 { left: 47.8%; top: 85%; width: 20%; }
+    .video-container {
+        margin-top: 12%;
+        margin-left: 10%;
+        display: inline-block;
+        padding: px; /* Опционально: отступ между видео и рамкой */
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+
+    .video-container video {
+        width: 500px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+    .video1 {
+        margin-top: 5%;
+        margin-left: 10%;
+        display: inline-block;
+        padding: px; /* Опционально: отступ между видео и рамкой */
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+    .video-container1 video {
+        width: 500px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+        .video2 {
+        margin-top: 5%;
+        margin-left: 10%;
+        display: inline-block;
+        padding: px; /* Опционально: отступ между видео и рамкой */
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+    .video-container2 video {
+        width: 500px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+    @keyframes glow {
+        0% {
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+        100% {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 0, 0, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
+        }
+}
+@media (max-width: 768px) {
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .logo {
+            display: none;
+            
+        }
+        .logo-img{
+            display: none;
+        }
+        .back{
+            margin-right: 60%;
+        }
+        .vid{ 
+            margin-top: 50%;
+        }
+        .methods {
+        position: absolute;
+        top: 10%; /* Смещение сверху */
+        left: 30%; /* Смещение от левого края */
+        font-size: 30px;
+        font-weight: 800;
+}
+        .method-title {
+        position: absolute;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1.2;
+        font-family: 'Roboto', sans-serif;
+    }
+    .method-title1 { left: 17.8%; top: 240px; width: 70%;}
+    .method-description1 { left: 5.8%; top: 360px; width: 90%; }
+    .video-container {
+        margin-top: 80%;
+        margin-left: 9%;
+        display: inline-block;
+        padding: px; /* Опционально: отступ между видео и рамкой */
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+
+    .video-container video {
+        width: 300px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+    .video1 {
+        margin-top: 88%;
+        margin-left: 9%;
+        display: inline-block;
+        padding: px; /* Опционально: отступ между видео и рамкой */
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+    .video-container1 video {
+        width: 300px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+    .method-title2 { left: 11.8%; top: 690px; width: 70%; }
+    .method-description2 { left: 5.8%; top: 52%; width: 90%; }
+    .video2 {
+        margin-top: 70%;
+        margin-left: 9%;
+        display: inline-block;
+        
+        border-radius: 10px; /* Закругленные углы рамки */
+        box-shadow: 0 0 20px rgba(255, 22, 22, 0.5), 0 0 40px rgba(251, 67, 67, 0.3), 0 0 60px rgba(255, 255, 255, 0.1);
+        animation: glow 2s ease-in-out infinite alternate;
+        }
+    .video-container2 video {
+        width: 300px;
+        height: auto;
+        border-radius: 10px; /* Повторяем закругленные углы для видео */
+        }
+        .method-title3 { left: 11.8%; top: 75%; }
+        .method-description3 { left: 5.8%; top: 81%; width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Лого -->
+    <div class="logo">HypnoLab</div>
+        <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+      
+    <!-- Методы -->
+    <div class="methods">Методы</div>
+    <!-- Назад -->
+    <div class="back">
+        <a href="index.html" class="button-text">Назад</a>
+    </div>
+    <div class="border-box"></div>
+    <div class="vid">
+    <div class="video-container">
+        <video src="intro.mp4" controls></video>
+      </div>
+    
+    <div class="method-title method-title1">Классический (директивный) гипноз</div>
+    <div class="method-description method-description1">метод для быстрого введения в гипнотическое состояние и внушения конкретных установок</div>
+
+    <!-- Карточка 2 -->
+    <div class="video-container1">
+        <video class="video1" src="intro.mp4" controls></video>
+      </div>
+    <div class="method-title method-title2">Эриксоновский (недирективный) гипноз</div>
+    <div class="method-description method-description2">эффективен для психотерапии, особенно при работе с глубокими эмоциональными проблемами, тревожностью и стрессом</div>
+
+    <div class="video-container2">
+        <video class="video2" src="intro.mp4" controls></video>
+      </div>
+   
+    
+    <div class="method-title method-title3">Фиксированная индукция</div>
+    <div class="method-description method-description3">полезно для снятия стресса, создания расслабленного состояния и вхождения в гипнотический транс</div>
+  </div>  
+  </div>
+</body>
+</html>
