@@ -1,0 +1,562 @@
+адаптируй сайт для мобильных устройств но не меняй структуру сайта: <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypnoLab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили для фона и шрифтов */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Source Serif Pro', serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #0F0404; /* Начальный цвет фона */
+        }
+        
+        .hypnosis-section {
+            width: 1301px;
+            height: 579px;
+            position: relative;
+            margin: 176px 93px 0;
+        }
+        .hypnosis-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 200px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            line-height: 240px;
+            letter-spacing: 2px;
+            color: #DB0000;
+           
+        }
+        @keyframes changeHypnosisWord {
+            0% {
+                content: "гипноз";
+                color: #ffffff; /* Красный */
+            }
+            20% {
+                content: "hypnosis";
+                color: #007BFF; /* Синий */
+            }
+            40% {
+                content: "hipnosis";
+                color: #28A745; /* Зеленый */
+            }
+            60% {
+                content: "hypnose";
+                color: #FFC107; /* Желтый */
+            }
+            80% {
+                content: "hypnose";
+                color: #17A2B8; /* Бирюзовый */
+            }
+            100% {
+                content: "гипноз";
+                color: #ffffff; /* Возврат к красному */
+            }
+        }
+        /* Изображение */
+        .hypnosis-image {
+            position: absolute;
+            top: 53px;
+            left: 387px;
+            width: 403px;
+            height: 500px;
+        }
+
+        /* Описание */
+        .hypnosis-description {
+            position: absolute;
+            top: 51px;
+            left: 825px;
+            color: white;
+            font-size: 50px;
+            font-family: "Roboto Condensed", sans-serif;
+            font-weight: 600;
+            line-height: 60px;
+            letter-spacing: 0.5px;
+            width: 476px;
+            height: 528px;
+        }
+        /* Основной контейнер */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 1440px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Логотип и название сайта */
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 57px;
+            font-size: 48px;
+            font-family: "poppins", sans-serif;
+            font-weight: 600;
+            animation: changeHypnosisWord 5s infinite;
+        }
+
+        .logo-img {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 98px;
+            height: 98px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Навигация справа */
+        .nav {
+            position: absolute;
+            top: 50px;
+            right: 57px;
+            display: flex;
+            gap: 30px;
+            font-size: 28px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 200;
+        }
+
+        .nav-item {
+            color: white;
+            cursor: pointer;
+            position: relative; /* Для псевдоэлемента */
+            transition: all 0.6s ease; /* Плавный переход для обводки */
+            padding: 5px; /* Добавьте немного внутреннего отступа для лучшего вида */
+            border-radius: 20px;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        .nav-item:hover {
+            outline: 2px solid red; /* Красная обводка при наведении */
+            outline-offset: 2px; /* Расстояние между текстом и обводкой */
+        }
+
+        /* Заголовок и центральный блок */
+        .main-title {
+            font-size: 200px;
+            color: #DB0000;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        .main-image {
+            width: 403px;
+            height: 500px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-text {
+            font-size: 50px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Центрированный текст "Хочешь попробовать?" */
+        .try-text {
+            color: white;
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 57.63px;
+            letter-spacing: 0.48px;
+            text-align: center;
+            margin: 90px auto 0;
+            font-family: "Poppins", sans-serif;
+        }
+        .try-text1 {
+            color: white;
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 57.63px;
+            letter-spacing: 0.48px;
+            text-align: center;
+            margin: 90px 0 90px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Кнопка */
+        .button-container {
+            width: 303px;
+            height: 82px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 23px;
+            border: 3px solid #FEFEFE;
+            overflow: hidden; /* Убедитесь, что псевдоэлемент не выходит за пределы кнопки */
+            box-shadow: 0px 4px 51px rgba(0, 0, 0, 0.62) inset;
+            margin: 0 auto; /* Центрируем кнопку */
+            margin-top: 20px; /* Добавляем отступ сверху для разделения с текстом */
+        }
+
+        .button-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #333, #666);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite; /* Анимация градиента */
+            z-index: 1; /* Помещаем псевдоэлемент за текстом кнопки */
+        }
+
+        .button-text {
+            position: relative; /* Чтобы текст отображался над псевдоэлементом */
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+            font-family: "Roboto Condensed", sans-serif;
+            line-height: 43.22px;
+            letter-spacing: 0.36px;
+            z-index: 2; /* Помещаем текст над псевдоэлементом */
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Разделы Истории */
+        .section-title {
+            font-family: "poppins", sans-serif;
+            font-size: 96px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .history-item {
+            font-family: "Poppins", sans-serif;
+            font-size: 40px;
+            font-weight: 300;
+            margin: 30px 0;
+            text-align: center;
+            position: relative; /* Для псевдоэлемента */
+        }
+
+        
+
+        @keyframes border-glow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.7);
+                opacity: 0.5; /* Начальная и конечная непрозрачность */
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 1);
+                opacity: 1; /* Максимальная непрозрачность */
+            }
+        }
+        .history-border {
+            border: 6px solid #FF0000;
+            border-radius: 31px;
+            width: 843px; /* Ширина контейнера с текстом */
+            margin: 20px auto; /* Центрируем контейнер */
+            animation: border-glow 1.5s linear infinite; /* Анимация бордера */
+            display: flex; /* Используем Flexbox для управления расположением элементов */
+            align-items: center; /* Центрируем содержимое по вертикали */
+            padding: 20px; /* Отступы внутри контейнера */
+        }
+
+        .history-images {
+            display: flex; /* Располагаем изображения в ряд */
+            justify-content: space-between; /* Пространство между изображениями */
+            flex: 1; /* Занимает равное пространство */
+            width: 150px;
+        }
+
+        .history-image {
+            width: 200px; /* Ширина изображений */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+            border-radius: 30px;
+        }
+
+        .text-hi {
+            color: white;
+            font-size: 20px;
+            font-family: "Roboto Condensed", serif;
+            font-weight: 350;
+            text-align: center; /* Центрируем текст */
+            margin-left: 50px;/* Отступы по бокам от текста */
+            
+        }
+         #hypnoVideo {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 30px;
+            margin-left: 80px;
+        }
+        .nav {
+            font-size: 16px;
+            top: 135px;
+            gap: 5px;
+            position: absolute;
+            left: 30px;
+        }
+        .logo-img{
+            position:absolute;
+            left: 80px;
+            top: 5px;
+        }
+        .hypnosis-section {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            margin: 145px 11px 0;
+        }
+        .hypnosis-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 55px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            line-height: 240px;
+            letter-spacing: 2px;
+            color: #DB0000;
+           
+        }
+        .hypnosis-image {
+            position: absolute;
+            top: 105px;
+            left: 109px;
+            width: 115px;
+            height: 140px;
+        }
+        .hypnosis-description {
+            position: relative; /* Измените позиционирование */
+            top: 100;
+            left: 225px;
+            width: 30%; /* Занимает всю ширину экрана */
+            height: auto; /* Автоматическая высота */
+            font-size: 15px; /* Уменьшите размер шрифта */
+            line-height: 1.5; /* Увеличьте межстрочный интервал */
+        }
+        .try-text{
+            color: white;
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 57.63px;
+            letter-spacing: 0.48px;
+            text-align: center;
+            margin: 90px auto 0;
+            font-family: "Poppins", sans-serif;
+
+        }
+        .button-container {
+            width: 250px;
+            height: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 35px;
+            border: 3px solid #FEFEFE;
+            overflow: hidden; /* Убедитесь, что псевдоэлемент не выходит за пределы кнопки */
+            box-shadow: 0px 4px 51px rgba(0, 0, 0, 0.62) inset;
+            margin: 0 auto; /* Центрируем кнопку */
+            margin-top: 20px; /* Добавляем отступ сверху для разделения с текстом */
+        }
+        #hypnoVideo{
+            width: 100%;
+            height: 150px;
+        }
+        .section-title {
+            font-family: "poppins", sans-serif;
+            font-size: 40px;
+            font-weight: 300;
+            text-align: center;
+            margin-top: 90px;
+        }
+        .history-item {
+            font-family: "Poppins", sans-serif;
+            font-size: 25px;
+            font-weight: 300;
+            margin: 30px 0;
+            text-align: center;
+            position: relative; /* Для псевдоэлемента */
+        }
+        .history-border {
+            border: 6px solid #FF0000;
+            border-radius: 31px;
+            width: 270px; /* Ширина контейнера с текстом */
+            margin: 10px auto; /* Центрируем контейнер */
+            animation: border-glow 1.5s linear infinite; /* Анимация бордера */
+            display: flex; /* Используем Flexbox для управления расположением элементов */
+            align-items: center; /* Центрируем содержимое по вертикали */
+            padding: 20px; /* Отступы внутри контейнера */
+        }
+        .history-images {
+            display: flex; /* Располагаем изображения в ряд */
+            justify-content: space-between; /* Пространство между изображениями */
+            flex: 1; /* Занимает равное пространство */
+            width: 30px;
+        }
+
+        .history-image {
+            width: 70px; /* Ширина изображений */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+            border-radius: 10px;
+        }
+
+        .text-hi {
+            color: white;
+            font-size: 15px;
+            font-family: "Roboto Condensed", serif;
+            font-weight: 350;
+            text-align: center; /* Центрируем текст */
+            margin-left: 40px;/* Отступы по бокам от текста */
+            
+        }
+    }
+  /* Другие стили для мобильных устройств */
+
+        </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Логотип -->
+        <div class="logo">HypnoLab</div>
+        <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+      
+        <!-- Навигация справа -->
+        <div class="nav">
+            <a href="#" class="nav-item">Методы</a>
+            <a href="#" class="nav-item">Услуги</a>
+            <a href="#" class="nav-item">Сеанс</a>
+            <a href="#" class="nav-item">Возможности</a>
+        </div>
+    
+        <!-- Главный блок с текстом и изображением -->
+        <div class="hypnosis-section">
+            <div class="hypnosis-title">Гипноз</div>
+            <img class="hypnosis-image" src="Picsart_24-11-03_12-17-43-147 1.png" alt="Hypnosis Image">
+            <div class="hypnosis-description">
+                — это ключ к тайнам и ресурсам вашего подсозания.
+            </div>
+        </div>
+
+        <!-- Текст "Хочешь попробовать?" -->
+        <div class="try-text">Хочешь попробовать?</div>
+
+        <!-- Кнопка с текстом "Нажми меня" -->
+        <div class="button-container">
+            <a href="#" class="button-text">Нажми меня</a>
+        </div>
+        <div class="try-text1">Что такое HypnoLab</div>
+        <div style="width: 100%; overflow: hidden;">
+            <video id="hypnoVideo" controls>
+                <source src="intro.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <!-- Раздел истории -->
+        <div class="section-title">История гипноза</div>
+        
+        <div class="history-item">Донаучный этап</div>
+      
+            <div class="history-border">
+                <div class="history-images">
+                    <img class="history-image" src="Ancient Egypt Comes Back to Life Through European Art.jfif" alt="Right Image"> <!-- Ссылка на изображение справа -->
+                </div>
+                <div class="text-hi">
+                    В древности и средневековье гипнотические практики проявлялись как магические ритуалы с элементами религии и мифологии. Жрецы и маги применяли их для изгнания нечистой силы и лечения одержимости.
+                </div>
+            </div>
+       
+        <div class="history-item">Эпоха Франца Антона Месмера</div>
+        <div class="history-border">
+            <div class="history-images">
+                <img class="history-image" src="1774e19f-d88c-4d6d-a4d9-885bc21da15f.jfif" alt="Right Image"> <!-- Ссылка на изображение справа -->
+            </div>
+            <div class="text-hi">
+                Венский врач Месмер (1734–1815) впервые проявил научный интерес к внушению и применял его для лечения, но его идеи не были признаны научным сообществом.
+            </div>
+        </div>
+
+        <div class="history-item">Введение термина "гипноз"</div>
+        <div class="history-border">
+            <div class="history-images">
+                <img class="history-image" src="Без названия (1).jfif" alt="Right Image"> <!-- Ссылка на изображение справа -->
+            </div>
+            <div class="text-hi">
+                В 1843 году офтальмолог Джеймс Бред в книге «Нейрогипнология» ввёл термин «гипноз», объяснив его как состояние нервного сна, вызванного фиксацией взгляда. Бред отверг мистику и связал явление с функциональными изменениями нервной системы.
+            </div>
+        </div>
+
+        <div class="history-item">"Золотой век гипнотизма" во Франции.</div>
+        <div class="history-border">
+            <div class="history-images">
+                <img class="history-image" src="gettyimages-3426431-612x612.jpg" alt="Right Image"> <!-- Ссылка на изображение справа -->
+            </div>
+            <div class="text-hi">
+                В 1880-е годы Ж.-М. Шарко и другие учёные накопили обширные данные по гипнозу. В 1882 году Французская академия наук признала гипнотическое внушение лечебным методом.
+            </div>
+        </div>
+
+        <div class="history-item">Гипноз в России.</div>
+        <div class="history-border">
+            <div class="history-images">
+                <img class="history-image" src="gettyimages-515578916-612x612.jpg" alt="Right Image"> <!-- Ссылка на изображение справа -->
+            </div>
+            <div class="text-hi">
+                В конце XIX века В. М. Бехтерев добился признания гипноза как терапевтического метода с научным обоснованием.
+            </div>
+        </div>
+
+        <div class="history-item">Физиологическая концепция гипноза И. П. Павлова</div>
+        <div class="history-border">
+            <div class="history-images">
+                <img class="history-image" src="pavlov.png" alt="Right Image"> <!-- Ссылка на изображение справа -->
+            </div>
+            <div class="text-hi">
+                Павлов разработал теорию гипноза как частичного сна с активным центром бодрствования, что расширило научное понимание этого состояния.
+        </div>
+    </div>
+
+</body>
+</html>
