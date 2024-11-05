@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypnoLab</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #0F0404;
+      color: white;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: 600;
+      margin-left: 20px;
+      animation: changeHypnosisWord 5s infinite;
+    }
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .methods {
+      font-size: 2em;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+    .back {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .button-text {
+        color: white;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+    /* Стили для остального контента */
+    .box-border, .box1 {
+      border: 4px solid white;
+      border-radius: 16px;
+      background: transparent;
+      width: 90%;
+      max-width: 900px;
+      padding: 20px;
+      margin: 20px 0;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .paragraph, .paragraph1, .text1, .text2, .text3, .text4 {
+      font-size: 1.2em;
+      line-height: 1.5;
+      max-width: 60%;
+      margin: 20px auto;
+      font-weight: 600;
+    }
+    .image1, .image2, .image3, .image4 {
+      width: 80px;
+      height: 80px;
+      margin: 20px 0;
+    }
+    #hypnoVideo {
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      margin-top: 20px;
+      object-fit: cover;
+    }
+    /* Анимации */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+      }
+    }
+    @keyframes changeHypnosisWord {
+      0%, 100% { color: #ffffff; }
+      20% { color: #007BFF; }
+      40% { color: #28A745; }
+      60% { color: #FFC107; }
+      80% { color: #17A2B8; }
+    }
+    /* Адаптивные стили для мобильных устройств */
+    @media (max-width: 768px) {
+      .logo { font-size: 24px; }
+      .methods { font-size: 1.5em; }
+      .back { font-size: 1em; padding: 8px 16px; }
+      .paragraph, .paragraph1, .text1, .text2, .text3, .text4 {
+        font-size: 1em;
+        max-width: 100%;
+      }
+      .image1, .image2, .image3, .image4 {
+        width: 60px;
+        height: 60px;
+      }
+      #hypnoVideo {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Логотип слева -->
+    <div class="left">
+      <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+      <div class="logo">HypnoLab</div>
+    </div>
+    <!-- Назад справа -->
+    <div class="back">
+      <a href="index.html" class="button-text">Назад</a>
+    </div>
+  </div>
+  
+  <!-- Контент -->
+  <div class="container" style="flex-direction: column; align-items: center;">
+    <div class="methods">Возможности</div>
+    <div class="box-border">
+      <div class="paragraph">Гипноз — это искусство погружения в особое состояние, в котором раскрывается глубинный потенциал сознания. Представьте себе, что границы привычных мыслей и забот растворяются, уступая место безмятежной тишине, где каждая мысль становится чистым намерением, а каждая эмоция — мощной силой на пути к самопознанию.</div>
+    </div>
+    <div class="box1">
+      <div class="paragraph1">Гипноз — это путь к самому себе, к той версии вас, которая лишена сомнений и страхов, которая знает свои истинные желания и стремится к лучшей жизни.</div>
+    </div>
+    <img class="image1" src="Group 23.svg" alt="icon1">
+    <div class="text1">Ваш разум обретает невероятную гибкость. Воображение, которое обычно скрыто в тени повседневной суеты, оживает, становится пластичным и позволяет воплощать самые смелые мечты</div>
+    <img class="image2" src="Group 25.svg" alt="icon2">
+    <div class="text2">Ваши внутренние страхи теряют силу, а застарелые убеждения плавятся, оставляя место для новых возможностей.</div>
+    <img class="image3" src="Group 27.svg" alt="icon3">
+    <div class="text3">Гипноз может стать вашим союзником в решении вопросов, которые казались неразрешимыми. Бросить вредную привычку, вернуть уверенность, освободиться от старых обид и стрессов..</div>
+    <img class="image4" src="Group 30.svg" alt="icon4">
+    <div class="text4">Каждый шаг в гипнотическом путешествии открывает дверь в незримый мир, где ваше подсознание готово сотрудничать, творить и исцелять.</div>
+    <!-- Видео -->
+    <video id="hypnoVideo" controls>
+      <source src="intro.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
+</body>
+</html>
