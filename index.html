@@ -117,13 +117,21 @@
         .logo-img {
             position: absolute;
             top: 20px;
-            left: 50%;
+            right:96%;
             width: 98px;
             height: 98px;
             border-radius: 50%;
             transform: translateX(-50%);
-        }
-
+            animation: spin 2s linear infinite, fadeIn 2s forwards;
+            }
+            @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            }
         /* Навигация справа */
         .nav {
             position: absolute;
@@ -196,7 +204,7 @@
             line-height: 57.63px;
             letter-spacing: 0.48px;
             text-align: center;
-            margin: 90px 0 90px;
+            margin: 190px 0 60px;
             font-family: "Poppins", sans-serif;
         }
 
@@ -269,6 +277,15 @@
             text-align: center;
             position: relative; /* Для псевдоэлемента */
         }
+        .history-item1 {
+            font-family: "Poppins", sans-serif;
+            width: 100%;
+            font-size: 35px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative; /* Для псевдоэлемента */
+        }
 
         
 
@@ -327,7 +344,7 @@
         }
         .logo {
             font-size: 30px;
-            margin-left: 90px;
+            margin-left: 25%;
         }
         .nav {
             font-size: 17px;
@@ -340,7 +357,7 @@
         }
         .logo-img{
             position:absolute;
-            left: 85px;
+            right: 60%;
             top: 11px;
         }
         .hypnosis-section {
@@ -466,6 +483,15 @@
             z-index: 2; /* Помещаем текст над псевдоэлементом */
             text-decoration: none; /* Убираем подчеркивание */
         }
+        .history-item1 {
+            font-family: "Poppins", sans-serif;
+            width: 100%;
+            font-size: 23px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative; /* Для псевдоэлемента */
+        }
     }
   /* Другие стили для мобильных устройств */
 
@@ -481,7 +507,7 @@
         <!-- Навигация справа -->
         <div class="nav">
             <a href="method.html" class="nav-item">Методы</a>
-            <a href="#" class="nav-item">Услуги</a>
+            <a href="uslug.html" class="nav-item">Услуги</a>
             <a href="#" class="nav-item">Сеанс</a>
             <a href="vozmozh.html" class="nav-item">Возможности</a>
         </div>
@@ -496,9 +522,10 @@
 
         <!-- Кнопка с текстом "Нажми меня" -->
         <div class="button-container">
-            <a href="#" class="button-text">Нажми меня</a>
+            <a href="uslug.html" class="button-text">Нажми меня</a>
         </div>
         <div class="try-text1">Что такое HypnoLab</div>
+        <div class="history-item1">это методы и инструменты, котрые способны изменить вашу жизнь в лучшую сторону </div>
         <div style="width: 100%; overflow: hidden;">
             <video id="hypnoVideo" controls>
                 <source src="intro.mp4" type="video/mp4">

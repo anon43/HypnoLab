@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анимация спирали и текста</title>
+  <style>
+    /* Основные стили страницы */
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0F0404;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    
+    /* Контейнер для анимации */
+    .animation-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    /* Спираль */
+    .spiral {
+      width: 100px;
+      height: 100px;
+      background-image: url('png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png'); /* Путь к изображению спирали */
+      background-size: cover;
+      animation: spin 2s linear infinite, fadeIn 2s forwards;
+    }
+    
+    /* Анимация вращения спирали */
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Плавное появление текста */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Текст */
+    .text {
+      font-size: 2em;
+      font-weight: bold;
+      margin-left: 20px;
+      opacity: 0;
+      animation: fadeInText 3s forwards;
+      animation-delay: 2s; /* Появление текста после вращения спирали */
+    }
+
+    /* Анимация для текста */
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Плавное перемещение текста справа от спирали */
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animation-container">
+    <!-- Спираль -->
+    <div class="spiral"></div>
+  
+    <div class="text">HypnoLab</div>
+  </div>
+
+</body>
+</html>

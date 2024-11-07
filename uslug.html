@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypnoLab</title>
+  <style>
+     .modal {
+      display: none; /* Окно скрыто по умолчанию */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    }
+    .modal-content {
+      background-color: #0F0404;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #ccc;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #0F0404;
+      color: white;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: 600;
+      margin-left: 20px;
+      animation: changeHypnosisWord 5s infinite;
+    }
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .methods {
+      font-size: 2em;
+      font-weight: 800;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .back {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .button {
+        margin-top: 30px;
+        display: inline-block; /* Устанавливаем кнопке компактный размер */
+        padding: 10px 50px;
+        font-size: 1em;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 20px;
+        cursor: pointer;
+        }
+
+        /* Для центрирования кнопки в родительском контейнере */
+        .parent-container {
+        text-align: center; /* Центрируем элементы внутри родителя */
+        }
+    .button-text {
+      color: white;
+      text-decoration: none;
+    }
+    .service-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      border: 4px solid white;
+      border-radius: 16px;
+      background: transparent;
+      width: 48%;
+      padding: 20px;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .paragraph {
+      font-size: 1.2em;
+      line-height: 1.5;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+    .paragraph1 {
+      font-size: 30px;
+      line-height: 1.5;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+    .text-large {
+        text-align: center; /* Выровнять текст по центру */
+        font-size: 200px;
+        font-weight: bold;
+        line-height: 1.2;
+        }
+    .text-medium {
+      margin-top: 25px;
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .text-medium1 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    /* Анимации */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+      }
+    }
+    @keyframes changeHypnosisWord {
+      0%, 100% { color: #ffffff; }
+      20% { color: #007BFF; }
+      40% { color: #28A745; }
+      60% { color: #FFC107; }
+      80% { color: #17A2B8; }
+    }
+    /* Адаптивные стили для мобильных устройств */
+    @media (max-width: 768px) {
+      .logo { font-size: 24px; }
+      .methods { font-size: 1.5em; }
+      .back { font-size: 1em; padding: 8px 16px; }
+      .service-card {
+        width: 90%;
+      }
+      .paragraph {
+        font-size: 1em;
+      }
+    }
+    .text-large {
+        text-align: center; /* Выровнять текст по центру */
+        font-size: 180px;
+        font-weight: bold;
+        line-height: 1.2;
+        }
+    .text-medium {
+      
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+    .text-medium1 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Логотип слева -->
+    <div class="left">
+      <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+      <div class="logo">HypnoLab</div>
+    </div>
+    <!-- Назад справа -->
+    <div class="back">
+      <a href="index.html" class="button-text">Назад</a>
+    </div>
+  </div>
+  
+  <!-- Контент -->
+  <div class="methods">Услуги</div>
+  <div class="service-container">
+    <div class="service-card">
+        <div class="text-large" >503</div>
+      <div class="text-medium1" >“503”</div>
+        <div class="text-medium">
+            Пакет услуг “503” дает вам возможность воспользоваться следующими услугами:
+          </div>
+          <div class="paragraph">Консультация гипнотерапевта<br>3 сеанса директивного гипноза<br>1 сеанс регрессивного гипноза</div>
+          <div class="paragraph1">Стоимость: 9000руб.</div>
+        <div class="parent-container">
+            <div class="button" onclick="openModal('Пакет услуг “503”')">Попробовать</div>
+        </div>  
+    </div>
+    <div class="service-card">
+        <div class="text-large" >404</div>
+        <div class="text-medium1" >“404”</div>
+          <div class="text-medium">
+              Пакет услуг “404” дает вам возможность воспользоваться следующими услугами:
+            </div>
+            <div class="paragraph">Консультация гипнотерапевта<br>6 сеанса директивного гипноза<br>3 сеанса регрессивного гипноза</div>
+            <div class="paragraph1">Стоимость: 15000руб.</div>
+          <div class="parent-container">
+            <div class="button" onclick="openModal('Пакет услуг “404”')">Попробовать</div>
+          </div>  
+    </div>
+    <div class="service-card">
+        <div class="text-large" >207</div>
+        <div class="text-medium1" >“207”</div>
+          <div class="text-medium">
+              Пакет услуг “207” дает вам возможность воспользоваться следующими услугами:
+            </div>
+            <div class="paragraph">Консультация гипнотерапевта<br>4 сеанса недирективного гипноза<br>3 сеанс регрессивного гипноза </div>
+            <div class="paragraph1">Стоимость: 12700руб.</div>
+          <div class="parent-container">
+            <div class="button" onclick="openModal('Пакет услуг “207”')">Попробовать</div>
+          </div>  
+    </div>
+    <div class="service-card">
+        <div class="text-large" >301</div>
+        <div class="text-medium1" >“301”</div>
+          <div class="text-medium">
+              Пакет услуг “301” дает вам возможность воспользоваться следующими услугами:
+            </div>
+            <div class="paragraph">Консультация гипнотерапевта<br>10 сеанса директивного гипноза<br>5 сеанс регрессивного гипноза<br>5 сеанса недирективного гипноза</div>
+            <div class="paragraph1">Стоимость: 3000руб.</div>
+          <div class="parent-container">
+            <div class="button" onclick="openModal('Пакет услуг “301”')">Попробовать</div>
+          </div>  
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2 id="modal-title">Информация о пакете</h2>
+          <p id="modal-text"></p>
+        </div>
+      </div>
+      <script>
+        // Функция для открытия модального окна с информацией
+        function openModal(serviceName) {
+          document.getElementById("modal").style.display = "block";
+          document.getElementById("modal-title").textContent = serviceName;
+          document.getElementById("modal-text").textContent = "Для того, чтобы воспользоваться пакетом напишите на почту hypnolabanimu@gmail.com в письме укажите номер пакета, которым хотите воспользоваться и ФИО с контактной информацией, мы свяжемся с вами. Ваша новая версия в HypnoLab. Вы выбрали- " + serviceName + ".";
+        }
+    
+        // Функция для закрытия модального окна
+        function closeModal() {
+          document.getElementById("modal").style.display = "none";
+        }
+    
+        // Закрытие окна при клике вне его
+        window.onclick = function(event) {
+          const modal = document.getElementById("modal");
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      </script>
+  </div>
+</body>
+</html>
+
