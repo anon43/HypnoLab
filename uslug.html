@@ -50,10 +50,12 @@
       color: white;
     }
     .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
+      position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 1440px;
+            margin: auto;
+            padding: 20px;
     }
     .left {
       display: flex;
@@ -70,6 +72,15 @@
       height: 80px;
       border-radius: 50%;
       margin-right: 10px;
+      animation: spin 2s linear infinite, fadeIn 2s forwards;
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
     .methods {
       font-size: 2em;
@@ -155,6 +166,12 @@
       font-weight: bold;
       line-height: 1.2;
     }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
     /* Анимации */
     @keyframes glow {
       0% {
@@ -173,19 +190,19 @@
     }
     /* Адаптивные стили для мобильных устройств */
     @media (max-width: 768px) {
-      .logo { font-size: 24px; }
+      .logo { font-size: 24px;margin-right: 15px; }
       .methods { font-size: 1.5em; }
-      .back { font-size: 1em; padding: 8px 16px; }
+      .back { font-size: 1em; padding: 8px 12px;}
       .service-card {
         width: 90%;
       }
       .paragraph {
         font-size: 1em;
       }
-    }
+  
     .text-large {
         text-align: center; /* Выровнять текст по центру */
-        font-size: 180px;
+        font-size: 150px;
         font-weight: bold;
         line-height: 1.2;
         }
@@ -201,85 +218,96 @@
       font-weight: bold;
       line-height: 1.2;
     }
+    .service-card {
+      
+      width: 95%;
+  
+    }
+    .container {
+            width: 105%;
+            margin: 0 auto;
+        }
+   }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Логотип слева -->
-    <div class="left">
-      <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
-      <div class="logo">HypnoLab</div>
+    <div class="header">
+      <div class="left">
+        <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+        <div class="logo">HypnoLab</div>
+      </div>
+      <div class="back">
+        <a href="index.html" class="button-text">Назад</a>
+      </div>
     </div>
-    <!-- Назад справа -->
-    <div class="back">
-      <a href="index.html" class="button-text">Назад</a>
-    </div>
-  </div>
   
   <!-- Контент -->
-  <div class="methods">Услуги</div>
-  <div class="service-container">
-    <div class="service-card">
-        <div class="text-large" >503</div>
-      <div class="text-medium1" >“503”</div>
-        <div class="text-medium">
-            Пакет услуг “503” дает вам возможность воспользоваться следующими услугами:
-          </div>
-          <div class="paragraph">Консультация гипнотерапевта<br>3 сеанса директивного гипноза<br>1 сеанс регрессивного гипноза</div>
-          <div class="paragraph1">Стоимость: 9000руб.</div>
-        <div class="parent-container">
-            <div class="button" onclick="openModal('Пакет услуг “503”')">Попробовать</div>
-        </div>  
-    </div>
-    <div class="service-card">
-        <div class="text-large" >404</div>
-        <div class="text-medium1" >“404”</div>
-          <div class="text-medium">
-              Пакет услуг “404” дает вам возможность воспользоваться следующими услугами:
-            </div>
-            <div class="paragraph">Консультация гипнотерапевта<br>6 сеанса директивного гипноза<br>3 сеанса регрессивного гипноза</div>
-            <div class="paragraph1">Стоимость: 15000руб.</div>
-          <div class="parent-container">
-            <div class="button" onclick="openModal('Пакет услуг “404”')">Попробовать</div>
-          </div>  
-    </div>
-    <div class="service-card">
-        <div class="text-large" >207</div>
-        <div class="text-medium1" >“207”</div>
-          <div class="text-medium">
-              Пакет услуг “207” дает вам возможность воспользоваться следующими услугами:
-            </div>
-            <div class="paragraph">Консультация гипнотерапевта<br>4 сеанса недирективного гипноза<br>3 сеанс регрессивного гипноза </div>
-            <div class="paragraph1">Стоимость: 12700руб.</div>
-          <div class="parent-container">
-            <div class="button" onclick="openModal('Пакет услуг “207”')">Попробовать</div>
-          </div>  
-    </div>
-    <div class="service-card">
-        <div class="text-large" >301</div>
-        <div class="text-medium1" >“301”</div>
-          <div class="text-medium">
-              Пакет услуг “301” дает вам возможность воспользоваться следующими услугами:
-            </div>
-            <div class="paragraph">Консультация гипнотерапевта<br>10 сеанса директивного гипноза<br>5 сеанс регрессивного гипноза<br>5 сеанса недирективного гипноза</div>
-            <div class="paragraph1">Стоимость: 3000руб.</div>
-          <div class="parent-container">
-            <div class="button" onclick="openModal('Пакет услуг “301”')">Попробовать</div>
-          </div>  
-    </div>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <h2 id="modal-title">Информация о пакете</h2>
-          <p id="modal-text"></p>
+      <div class="methods">Услуги</div>
+      <div class="service-container">
+        <div class="service-card">
+            <div class="text-large" >503</div>
+          <div class="text-medium1" >“503”</div>
+            <div class="text-medium">
+                Пакет “503” дает вам возможность воспользоваться следующими услугами:
+              </div>
+              <div class="paragraph">Консультация гипнотерапевта<br>3 сеанса директивного гипноза<br>1 сеанс регрессивного гипноза</div>
+              <div class="paragraph1">Стоимость: 9000руб.</div>
+            <div class="parent-container">
+                <div class="button" onclick="openModal('Пакет услуг “503”')">Попробовать</div>
+            </div>  
         </div>
-      </div>
+        <div class="service-card">
+            <div class="text-large" >404</div>
+            <div class="text-medium1" >“404”</div>
+              <div class="text-medium">
+                  Пакет “404” дает вам возможность воспользоваться следующими услугами:
+                </div>
+                <div class="paragraph">Консультация гипнотерапевта<br>6 сеанса директивного гипноза<br>3 сеанса регрессивного гипноза</div>
+                <div class="paragraph1">Стоимость: 15000руб.</div>
+              <div class="parent-container">
+                <div class="button" onclick="openModal('Пакет услуг “404”')">Попробовать</div>
+              </div>  
+        </div>
+        <div class="service-card">
+            <div class="text-large" >207</div>
+            <div class="text-medium1" >“207”</div>
+              <div class="text-medium">
+                  Пакет “207” дает вам возможность воспользоваться следующими услугами:
+                </div>
+                <div class="paragraph">Консультация гипнотерапевта<br>4 сеанса недирективного гипноза<br>3 сеанс регрессивного гипноза </div>
+                <div class="paragraph1">Стоимость: 12700руб.</div>
+              <div class="parent-container">
+                <div class="button" onclick="openModal('Пакет услуг “207”')">Попробовать</div>
+              </div>  
+        </div>
+        <div class="service-card">
+            <div class="text-large" >301</div>
+            <div class="text-medium1" >“301”</div>
+              <div class="text-medium">
+                  Пакет “301” дает вам возможность воспользоваться следующими услугами:
+                </div>
+                <div class="paragraph">Консультация гипнотерапевта<br>10 сеанса директивного гипноза<br>5 сеанс регрессивного гипноза<br>5 сеанса недирективного гипноза</div>
+                <div class="paragraph1">Стоимость: 30000руб.</div>
+              <div class="parent-container">
+                <div class="button" onclick="openModal('Пакет услуг “301”')">Попробовать</div>
+              </div>  
+        </div>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <h2 id="modal-title">Информация о пакете</h2>
+              <p id="modal-text"></p>
+            </div>
+          </div>
+    </div>
       <script>
         // Функция для открытия модального окна с информацией
         function openModal(serviceName) {
           document.getElementById("modal").style.display = "block";
           document.getElementById("modal-title").textContent = serviceName;
-          document.getElementById("modal-text").textContent = "Для того, чтобы воспользоваться пакетом напишите на почту hypnolabanimu@gmail.com в письме укажите номер пакета, которым хотите воспользоваться и ФИО с контактной информацией, мы свяжемся с вами. Ваша новая версия в HypnoLab. Вы выбрали- " + serviceName + ".";
+          document.getElementById("modal-text").textContent = "Для того, чтобы воспользоваться пакетом напишите на почту hypnolabanimu@gmail.com в письме укажите номер пакета, которым хотите воспользоваться и ФИО с контактной информацией, мы свяжемся с вами. Ваша новая версия в HypnoLab. Вы выбрали -  " + serviceName + ".";
         }
     
         // Функция для закрытия модального окна

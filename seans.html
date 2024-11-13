@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HypnoLab</title>
+  <style>
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      background-color: #0F0404;
+      color: white;
+    }
+    .container {
+        max-width: 1440px;
+         margin: 0 auto; /* Центрирование контейнера */
+          padding: 20px;
+          width: 100%;
+    }
+    .content-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      width: 100%; 
+    }
+    .left {
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: 600;
+      margin-left: 20px;
+      animation: changeHypnosisWord 5s infinite;
+    }
+    .logo-img {
+        
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 10px;
+      animation: spin 2s linear infinite, fadeIn 2s forwards;
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .methods {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 800;
+      margin-bottom: 60px;
+    }
+    .header {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    .back {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 25px;
+      cursor: pointer;
+      animation: glow 3s infinite alternate;
+      text-align: center;
+    }
+    .button-text {
+        color: white;
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+    /* Стили для остального контента */
+    .box-border, .box1 {
+      border: 4px solid white;
+      border-radius: 16px;
+      background: transparent;
+      width: 90%;
+      max-width: 900px;
+      padding: 20px;
+      margin: 20px 0;
+      transition: color 0.3s ease-in-out;
+      animation: glow 3s infinite alternate;
+    }
+    .paragraph, .paragraph1, .text1, .text2, .text3, .text4 {
+    text-align: center;
+      font-size: 1.2em;
+      line-height: 1.5;
+      max-width: 60%;
+      margin: 20px auto;
+      font-weight: 600;
+    }
+    .paragraph{
+        font-size: 28px;
+    }
+    .image1, .image2, .image3, .image4 {
+      width: 80px;
+      height: 80px;
+      margin: 20px 0;
+    }
+    #hypnoVideo {
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      margin-top: 20px;
+      object-fit: cover;
+    }
+        .gallery-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      max-width: 1000px;
+      padding: 10px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Стили для модального окна */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .modal-content img {
+      width: 80%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    /* Анимации */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+      }
+    }
+    @keyframes changeHypnosisWord {
+      0%, 100% { color: #ffffff; }
+      20% { color: #007BFF; }
+      40% { color: #28A745; }
+      60% { color: #FFC107; }
+      80% { color: #17A2B8; }
+    }
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+    /* Адаптивные стили для мобильных устройств */
+    @media (max-width: 768px) {
+     
+      .container {
+            width: 105%;
+            margin: 0 auto;
+        }
+      .logo { font-size: 24px;margin-right: 15px; }
+      .methods { font-size: 1.5em; }
+      .back { font-size: 1em; padding: 8px 12px;}
+      .text1, .text2, .text3, .text4 {
+        font-size: 1em;
+        max-width: 100%;
+      }
+      .paragraph, .paragraph1{
+        font-size: 21px;
+        
+      }
+      .image1, .image2, .image3, .image4 {
+        width: 60px;
+        height: 60px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Две картинки в ряд */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Логотип слева -->
+    <div class="header">
+        <div class="left">
+          <img class="logo-img" src="png-clipart-circle-geometry-geometric-shape-spiral-circle-spiral-monochrome (1).png" alt="logo">
+          <div class="logo">HypnoLab</div>
+        </div>
+        <div class="back">
+          <a href="index.html" class="button-text">Назад</a>
+        </div>
+      </div>
+  
+  
+        <!-- Контент -->
+        <div class="content-container">
+            <div class="methods">Сеанс</div>
+            <div class="paragraph">Как строится струрктура сеанса:</div>
+            <img class="image1" src="Group 37.svg" alt="icon1">
+            <div class="text1">Вы выбираете пакет услуг и связываетесь с нами (инструкция для связи находится в разделе услуг при выборе пакета)</div>
+            <img class="image2" src="Group 38.svg" alt="icon2">
+            <div class="text2">В ответном письме мы предоставляем вам возможность выбрать время </div>
+            <img class="image3" src="Group 39.svg" alt="icon3">
+            <div class="text3">Перед погружением в гипноз вы получите консультацию гипнотерапевта</div>
+            <img class="image4" src="Group 40.svg" alt="icon4">
+            <div class="text4">Вы погружаетесь в транс и начинаете меняться</div>
+            <img class="image4" src="Group 41.svg" alt="icon4">
+            <div class="text4">После сеанса вы можете выбрать день и время для следующего погружения (согласно количеству в вашем пакете)</div>
+            <!-- Видео -->
+            <div class="methods">Кабинеты</div>
+            <div class="gallery-container">
+              <div class="gallery">
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                  <img src="photo_1_2024-11-13_15-08-05.jpg" alt="Изображение 1">
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                  <img src="photo_2_2024-11-13_15-08-05.jpg" alt="Изображение 2">
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                  <img src="photo_3_2024-11-13_15-08-05.jpg" alt="Изображение 3">
+                </div>
+                <div class="gallery-item" onclick="openModal(this.querySelector('img').src)">
+                  <img src="photo_4_2024-11-13_15-08-05.jpg" alt="Изображение 4">
+                </div>
+              </div>
+            </div>
+            <div class="modal" id="modal">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <div class="modal-content">
+                <img id="modal-img" src="" alt="Увеличенное изображение">
+              </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      function openModal(src) {
+        document.getElementById("modal").style.display = "flex";
+        document.getElementById("modal-img").src = src;
+      }
+  
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+</body>
+</html>
